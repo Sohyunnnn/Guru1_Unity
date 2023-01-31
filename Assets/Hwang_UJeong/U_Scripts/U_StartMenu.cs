@@ -13,14 +13,7 @@ public class U_StartMenu : MonoBehaviour
     {
         SceneManager.LoadScene("U_HowToPlay");
     }
-    /*public void QuitGame()
-    {
-        Application.Quit();
-    }*/
-    /*public void StartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }*/
+  
     // Start is called before the first frame update
     void Start()
     {

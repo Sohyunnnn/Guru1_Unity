@@ -47,19 +47,22 @@ public class U_PlayerMovement : MonoBehaviour
 
     [SerializeField]
     AudioClip Apple;
-    //[SerializeField]
-    //AudioSource shoot;
+    
 
     [SerializeField]
     private Transform deathZone;
 
     public string targetObjectName;
     GameObject smObject;
+   
     U_ScoreManager sm;
 
     GameObject gmObject;
     U_GameManager gm;
-    //public string targetObjectName;//목표 오브젝트 이름은 인스펙터에서 지정
+
+   
+
+    //목표 오브젝트 이름은 인스펙터에서 지정
     void Start()
     {
         Time.timeScale = 1;
@@ -70,32 +73,37 @@ public class U_PlayerMovement : MonoBehaviour
         gm = gmObject.GetComponent<U_GameManager>();
 
     }
-    private void OnCollisionEnter(Collision collision)//사과 20개 다 모으고 FinishLine에 닿으면 움직임 멈춤
+    private void OnCollisionEnter(Collision collision)//사과 10개 다 모으고 FinishLine에 닿으면 움직임 멈춤
     {
-       smObject = GameObject.Find("ScoreManager");
+        //GameObject smObject = GameObject.Find("U_ScoreManager");
+        //U_ScoreManager sm = smObject.GetComponent<U_ScoreManager>();
+        smObject = GameObject.Find("ScoreManager");
         sm = smObject.GetComponent<U_ScoreManager>();
 
+        
         if (collision.gameObject.name == "Apple")
         {
-            Debug.Log("사과와 충돌함");
+            
 
             sm.appleAmount += 1;
-            sm.appleAmountUI.text = "획득 사과:" + sm.appleAmount;
+            sm.appleAmountUI.text = "획득 사과: " + sm.appleAmount;
 
             Destroy(collision.gameObject);//사과에 닿으면 사과 삭제
 
             feetSteps.PlayOneShot(Apple);//사과 획득 시 효과음 발생
         }
-
-        if (collision.gameObject.name == "Apple" && sm.appleAmount == 20) 
+        //if (collision.gameObject.name == targetObjectName && sm.appleAmount == 20)
+        if(collision.gameObject.name == targetObjectName)
         {
-            Time.timeScale = 0;
+            print(targetObjectName);
 
-            SceneManager.LoadScene("U_Clear"); 
+            if(sm.appleAmount == 10)
+            {
+                Time.timeScale = 0;
 
+                SceneManager.LoadScene("U_Clear");
+            }
         }
-
-
         
     }
    

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -231,7 +231,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b95f425f538326b43b6c85e0960d8488, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.573
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1485338396}
-        m_TargetAssemblyTypeName: GameClearScene, Assembly-CSharp
+        m_TargetAssemblyTypeName: U_GameClearScene, Assembly-CSharp
         m_MethodName: BackToTownButton
         m_Mode: 1
         m_Arguments:

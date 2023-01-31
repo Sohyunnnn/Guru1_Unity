@@ -75,6 +75,6 @@ public class DialogueSystem2_TS : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        // SceneManager.LoadScene("무궁화 게임 씬");
+        SceneManager.LoadScene("U_StartMenu");
     }
 }

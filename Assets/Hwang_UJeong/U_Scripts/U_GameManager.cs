@@ -80,6 +80,10 @@ public class U_GameManager : MonoBehaviour
         gameLabel.SetActive(false);
 
         gState = GameState.Run;
+
+        {
+            dollSing.Play();
+        }
     }
 
     // Update is called once per frame
@@ -106,8 +110,8 @@ public class U_GameManager : MonoBehaviour
         }
 
         DisplayTime(timeValue);
-        dollSing.Play();
-        print("dollSing.Play()");
+
+        
     }
 
 
@@ -118,7 +122,6 @@ public class U_GameManager : MonoBehaviour
 
         float mins = Mathf.FloorToInt(timeToDisplay / 60);
         float secs = Mathf.FloorToInt(timeToDisplay % 60);
-        //Debug.Log("디스플레이");
         HeadTime(secs);
 
         timeText.text = string.Format("{0:00}:{1:00}", mins, secs);
@@ -128,13 +131,11 @@ public class U_GameManager : MonoBehaviour
     {
         if (gState != U_GameManager.GameState.Run)
         {
-            //Debug.Log("인형멈춤");
             return;
         }
 
         print("HeadTime");
         
-        //Debug.Log("인형움직임");
         if (timeValue <= 0)
         {
             headTimeFinish = true;
@@ -149,15 +150,15 @@ public class U_GameManager : MonoBehaviour
 
             if (headTime)
             {
-                dollHeadOn.Play(0);
+                dollHeadOn.Play();
             }
             else
             {
-                if (!dollSing.isPlaying)
-                    dollHeadOff.Play(0);
+                if (!dollHeadOff.isPlaying)
+                    dollHeadOff.Play();
 
-                //if (!dollSing.isPlaying)
-                //    dollSing.PlayDelayed(1);
+                if (!dollSing.isPlaying)
+                   dollSing.Play();
             }
         }
 
