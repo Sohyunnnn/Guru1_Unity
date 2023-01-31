@@ -32,7 +32,7 @@ public class Title : MonoBehaviour
     public void clickExit()
     {
         Debug.Log("ClickExit");
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     private void nextScene()
